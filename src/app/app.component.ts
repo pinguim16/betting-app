@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
+  template: `
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  `,
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [HeaderComponent, RouterModule],
 })
 export class AppComponent {
   title = 'betting-app';
