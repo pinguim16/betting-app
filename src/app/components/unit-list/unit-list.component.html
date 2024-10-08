@@ -1,0 +1,19 @@
+<h2>Lista de Unidades</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Valor da Unidade</th>
+      <th>Valor</th>
+      <th>Tipster</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let unit of units">
+      <td>{{ unit.id }}</td>
+      <td>{{ unit.unitValue }}</td>
+      <td>{{ unit.value }}</td>
+      <td>{{ unit.tipster.name }}</td>
+    </tr>
+  </tbody>
+</table>

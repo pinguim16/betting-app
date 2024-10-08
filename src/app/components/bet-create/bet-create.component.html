@@ -1,0 +1,89 @@
+<p-card header="Criar Nova Aposta" class="p-mt-3">
+  <form (ngSubmit)="createBet()" #betForm="ngForm" class="p-fluid">
+
+    <!-- Linha 1: Data e Odds -->
+    <div class="formgrid grid">
+      <div class="field col">
+        <label for="date">Data</label>
+        <p-calendar id="date" [(ngModel)]="bet.date" name="date" dateFormat="dd/mm/yy" [showTime]="true" hourFormat="24"
+          required></p-calendar>
+      </div>
+      <div class="field col">
+        <label for="odds">Odds</label>
+        <input id="odds" type="number" pInputText [(ngModel)]="bet.odds" name="odds" placeholder="Insira as odds"
+          min="1" step="0.01" required />
+      </div>
+      <div class="field col">
+        <label for="stake">Stake</label>
+        <input id="stake" type="number" pInputText [(ngModel)]="bet.stake" name="stake" placeholder="Insira a stake"
+          min="0" step="0.01" required />
+      </div>
+    </div>
+
+    <div class="formgrid grid">
+      <div class="field col">
+        <label for="stakeType">Tipo de Stake</label>
+        <p-dropdown id="stakeType" [options]="stakeTypes" [(ngModel)]="bet.stakeType" name="stakeType"
+          placeholder="Selecione o tipo de stake" required></p-dropdown>
+      </div>
+
+      <div class="field col">
+        <label for="tipster">Tipster</label>
+        <p-dropdown id="tipster" [options]="tipsters" [(ngModel)]="bet.tipster" name="tipster"
+          placeholder="Selecione o tipster" required optionLabel="name"></p-dropdown>
+      </div>
+
+      <div class="field col">
+        <label for="bookmaker">Casa de Aposta</label>
+        <p-dropdown id="bookmaker" [options]="bookmakers" [(ngModel)]="bet.bookmaker" name="bookmaker"
+          placeholder="Selecione a casa de aposta" required optionLabel="name"></p-dropdown>
+      </div>
+
+      <div class="field col">
+        <label for="category">Categoria</label>
+        <p-dropdown id="category" [options]="categories" [(ngModel)]="bet.category" name="category"
+          placeholder="Selecione a categoria" required optionLabel="name"></p-dropdown>
+      </div>
+
+      <div class="field col">
+        <label for="competition">Competição</label>
+        <p-dropdown id="competition" [options]="competitions" [(ngModel)]="bet.competition" name="competition"
+          placeholder="Selecione a competição" required optionLabel="name"></p-dropdown>
+      </div>
+
+      <div class="field col">
+        <div class="p-field">
+          <label for="sport">Esporte</label>
+          <p-dropdown id="sport" [options]="sports" [(ngModel)]="bet.sport" name="sport"
+            placeholder="Selecione o esporte" required optionLabel="name"></p-dropdown>
+        </div>
+      </div>
+
+      <div class="field col">
+        <div class="p-field">
+          <label for="competition">Competição</label>
+          <p-dropdown id="competition" [options]="competitions" [(ngModel)]="bet.competition" name="competition"
+            placeholder="Selecione a competição" required optionLabel="name"></p-dropdown>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha 5: Descrição da Aposta -->
+    <div class="p-field">
+      <label for="label">Descrição da Aposta</label>
+      <input id="label" type="text" pInputText [(ngModel)]="bet.label" name="label"
+        placeholder="Ex: Time A vs Time B - Over 2.5 gols" required />
+    </div>
+
+    <!-- Linha 6: Botão de Submissão -->
+    <div class="formgrid grid">
+      <div class="field col">
+        <button pButton type="submit" label="Criar Aposta" icon="pi pi-check" class="p-button-success"></button>
+      </div>
+      <div class="field col">
+        <button pButton type="button" label="Voltar" icon="pi pi-arrow-left" class="p-button-warning"
+          (click)="goBack()"></button>
+      </div>
+    </div>
+  </form>
+</p-card>
